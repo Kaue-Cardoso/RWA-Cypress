@@ -7,7 +7,7 @@ const registerPage = new RegisterPage()
 
 
 describe('RWA - Register Test', ()=>{
-    it('Register - Fail', ()=>{
+    it('Register - Success', ()=>{
         loginPage.accessLoginPage()
         registerPage.registerAccount()
         registerPage.fillFields(
@@ -16,7 +16,24 @@ describe('RWA - Register Test', ()=>{
             userdata.registeruserSuccess.username,
             userdata.registeruserSuccess.password,
             userdata.registeruserSuccess.confirmpassword,
-            
         )
+        registerPage.confirmRegister()
+        loginPage.loginWithAnyuser(
+            userdata.registeruserSuccess.username,
+            userdata.registeruserSuccess.password
+        )
+        
+    })
+    it('Register - Fail', ()=> {
+        loginPage.accessLoginPage()
+        registerPage.registerAccount()
+        registerPage.fillFields(
+            userdata.registeruserFail.firstname,
+            userdata.registeruserFail.lastname,
+            userdata.registeruserFail.username,
+            userdata.registeruserFail.password,
+            userdata.registeruserFail.confirmpassword,
+        )
+        registerPage.mismatchPassword()
     })
 })

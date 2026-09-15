@@ -6,7 +6,9 @@ class RegisterPage{
             lastnameField: '[name="lastName"]',
             usernameField: '[name="username"]',
             passwordField: '[name="password"]',
-            confirmPasswordField: '[name="confirmPassword"]'
+            confirmPasswordField: '[name="confirmPassword"]',
+            submitButton: '[data-test="signup-submit"]',
+            mismatchPassword: "#confirmPassword-helper-text"
 
         }
         return selectors
@@ -22,7 +24,12 @@ class RegisterPage{
         cy.get(this.selectorsList().usernameField).type(username)
         cy.get(this.selectorsList().passwordField).type(password)
         cy.get(this.selectorsList().confirmPasswordField).type(confirmpassword)
-        
+    }
+    confirmRegister(){
+        cy.get(this.selectorsList().submitButton).click()
+    }
+    mismatchPassword(){
+        cy.get(this.selectorsList().mismatchPassword)
     }
 }
 export default RegisterPage

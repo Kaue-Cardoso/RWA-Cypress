@@ -14,6 +14,13 @@
         "username": "robertinho",
         "password": "roberto123",
         "confirmpassword": "roberto123"
+    },
+     "registeruserFail":{
+        "firstname": "123456",
+        "lastname": "i",
+        "username": "0",
+        "password": "!@#$%¨)",
+        "confirmpassword": "!@#$%¨"
     }
     
 }
